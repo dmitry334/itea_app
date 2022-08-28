@@ -1,13 +1,4 @@
-import { useState } from 'react';
-
 const Products = (props) => {
-
-    const [description, setDescription] = useState(false);
-
-    const showDescription = (index) => {
-        setDescription(true);
-    }
-
     return (
         <ul className='popular-list'>
             {props.products.map((product, index) => {
@@ -26,10 +17,6 @@ const Products = (props) => {
                             <li>{product.title}</li>
                             <li>{product.price}</li>
                             <li>{product.id} id</li>
-                            { description &&
-                                <li>{product.description} </li>}
-                            <button onClick={() => {showDescription(index)}}> Show description </button>
-
                         </ul>
                     </li>
                 )

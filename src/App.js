@@ -1,10 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
 
-import Nav from './components/Nav';
-import Home from './components/Home';
-import Popular from './components/Popular';
-import Battle from './components/Battle';
-import PageNotFound from "./components/PageNotFound";
+import Nav from './components/pages/General/Nav';
+import Home from './components/pages/General/Home';
+import Popular from './components/pages/Popular/Popular';
+import Battle from './components/pages/Battle/Battle';
+import Results from './components/pages/Battle/Results';
+import PageNotFound from "./components/pages/General/PageNotFound";
 
 const App = () => {
 
@@ -15,6 +16,7 @@ const App = () => {
             <Route path='/' element={<Home />} />
             <Route path='popular' element={<Popular />} />
             <Route path='battle' element={<Battle />} />
+            <Route path='battle/results' element={<Results />} />
             <Route path='*' element={<PageNotFound />} />
         </Routes>
     </div>

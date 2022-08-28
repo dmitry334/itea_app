@@ -2,18 +2,18 @@ import axios from "axios";
 
 const id = 'YOUR_CLIENT_ID';
 const sec = 'YOUR_SECRET_ID';
-const params = '?client_id=' + id + '?client_secret=' + sec;
+const params = `?client_id=${id}?client_secret=${sec}`;
 
-
-const handleError = (error) => console.warn(error);
+const handleError = (error) => console.error(error);
 
 const getProfile = (username) => {
-    return axios.get('https://api.github.com/users/' + username + params)
-        .then (user=> user.data)
+    return axios.get(`https://api.github.com/users/${username}${params}`)
+        .then (user => user.data)
         .catch(handleError)
 }
+
 const getRepos = (username) => {
-    return axios.get('https://api.github.com/users/' + username + '/repos' + params + '&per_page=100')
+    return axios.get(`https://api.github.com/users/${username}/repos${params}&per_page=100`)
         .then (repos => repos.data)
         .catch(handleError)
 }
@@ -52,5 +52,5 @@ export const battle = (players) => {
 export const fetchPopularRepos = (category) => {
     const url = category === 'All' ? '' : `category/${category.toLocaleLowerCase()}`;
     return axios.get(`https://fakestoreapi.com/products/${url}`)
-        .then((res) => res.data);
+        .then((resonse) => resonse  .data);
 }
